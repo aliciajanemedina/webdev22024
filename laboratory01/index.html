@@ -9,7 +9,90 @@
 <body>
 
     <script>
-        //AAAAHHHH 1
+    
+    //AAAAHHHH no.1
+    let numbers = [15,16,17,18,19,20,21];
+    function isOdd(number){
+        return new Promise((resolve, reject) => {
+            if(number % 2 == 1) {
+                console.log("Resolve-- odd number", number)
+            }
+            else {
+                console.log("Reject-- even number", number)
+            }
+        });
+    }
+
+    function iteration(list) {
+        for (let i = 0; i < list.length; i++) {
+                isOdd(list[i]);
+        }
+    }
+
+    Iteration(numbers);
+
+
+    //AAAAAAHHHHHHH no. 2
+    function getRandomCharacter() {
+        return new Promise((resolve, reject) => {
+            setTimeout(()=> {
+                let keyLetters = "qwertyuiopasdfghjklzxcvbnm";
+                let randomPick = Math.floor(Math.random() * keyLetters.length);
+                resolve(keyLetters[randomPick]);
+            }, 500);
+        });
+    }
+        
+    getRandomCharacter()
+
+    .then(character => {
+        console.log("Resolve-- character: ", character);
+    })
+    
+    .catch(error => {
+    console.log("Reject-- character error: ", error);
+    })
+
+
+    // AAAAAAAHHHHHH no.3
+    function getData() {
+        return new Promise((resolve, reject)=> {
+            setTimeout(()=> {
+                
+                let rand = Math.floor(Math.random() * 200);
+        
+                reject(rand);
+            }, 500);
+        });
+    }
+
+    getData()
+    .then(character => {
+      console.log("Resolve-- character value: ", character);
+    }).catch(error => {
+      console.log("Reject-- character value: ", error);
+    });
+
+
+    //AAAAAAAAHHHHHHH no.4 
+    function rejectResolve() {
+        return new Promise((reject, resolve)=> {
+            setTimeout(()=> {
+                for (let i = 0; i < 2; i++){
+                if (i == 1){
+                    console.log("Reject-- Function 4");
+                } 
+                
+                else {
+                    console.log("Resolve-- Function 4");
+                }
+            }
+            }, 500);  
+        });
+    }
+
+    rejectResolve();
+
     </script>
 
 </body>
